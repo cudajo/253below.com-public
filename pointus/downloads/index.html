@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Pointus — 253°below</title>
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <style>
+        .download-wrapper {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 48px 0;
+        }
+
+        .download-card {
+          background: var(--card-bg);
+          border: 1px solid var(--border);
+          border-radius: 24px;
+          padding: 48px 40px;
+          max-width: 440px;
+          width: 90%;
+          text-align: center;
+          box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+          position: relative;
+          overflow: hidden;
+          margin: auto;
+        }
+
+        /* Top border gradient glow */
+        .download-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, var(--accent), transparent);
+          opacity: 0.6;
+        }
+
+        .download-card h1 {
+          font-size: 24px;
+          font-weight: 700;
+          margin: 0 0 12px;
+          letter-spacing: -0.5px;
+          line-height: var(--leading-tight);
+        }
+
+        .download-card p {
+          color: var(--text-muted);
+          font-size: 15px;
+          line-height: var(--leading-relaxed);
+          margin: 0 0 32px;
+        }
+
+        .download-actions {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          margin-bottom: 24px;
+        }
+
+        .btn-download {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 16px 20px;
+          background: var(--card-bg-subtle);
+          border: 1px solid var(--border);
+          color: var(--text-main);
+          text-decoration: none;
+          border-radius: 14px;
+          transition: all 0.2s ease;
+          box-sizing: border-box;
+        }
+
+        .btn-download:hover {
+          border-color: var(--border-focus);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Highlight detected user OS */
+        .btn-download.featured {
+          background: var(--accent);
+          border-color: var(--accent);
+          color: #FFFFFF;
+          box-shadow: 0 4px 14px var(--accent-glow);
+        }
+
+        .btn-download.featured:hover {
+          background: var(--accent-hover);
+          border-color: var(--accent-hover);
+          box-shadow: 0 6px 20px var(--accent-glow);
+        }
+
+        .btn-content {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          text-align: left;
+        }
+
+        .btn-content svg {
+          width: 24px;
+          height: 24px;
+          fill: currentColor;
+          flex-shrink: 0;
+        }
+
+        .btn-text-main {
+          font-size: 15px;
+          font-weight: 600;
+          display: block;
+          line-height: 1.2;
+        }
+
+        .btn-text-sub {
+          font-size: 12px;
+          color: var(--text-muted);
+          display: block;
+          margin-top: 3px;
+        }
+
+        .btn-download.featured .btn-text-sub {
+          color: rgba(255, 255, 255, 0.8);
+        }
+
+        .arrow-icon {
+          width: 18px;
+          height: 18px;
+          stroke: currentColor;
+          stroke-width: 2;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          fill: none;
+          opacity: 0.6;
+          transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .btn-download:hover .arrow-icon {
+          opacity: 1;
+          transform: translateX(3px);
+        }
+
+        .footer-note {
+          font-size: 12px;
+          color: var(--text-muted);
+          margin-top: 12px;
+          line-height: var(--leading-relaxed);
+        }
+    </style>
+</head>
+<body data-surface="light" data-accent="blue">
+
+<div id="global-nav-mount"></div>
+<nav class="sub-nav">
+    <div class="shell-container sub-nav-inner">
+        <a href="/pointus/">Pointus</a>
+        <a href="/pointus/downloads" class="active">Download</a>
+        <!--a href="/pointus/help/">Help Center</a-->
+        <!--a href="/pointus/changelog/">Changelog</a-->
+        <a href="/pointus/privacy/">Privacy</a>
+    </div>
+</nav>
+
+<div class="download-wrapper">
+    <main class="download-card">
+        <div class="icon-wrapper">
+            <img src="../assets/images/app_icon.png" alt="Pointus Logo">
+        </div>
+
+        <h1>Pointus downloads</h1>
+        <p>Choose your platform below to download and install Pointus for your desktop.</p>
+
+        <div class="download-actions">
+            <!-- macOS Download -->
+            <a href="mac" id="macDownloadBtn" class="btn-download">
+                <div class="btn-content">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.56-1.702z"></path>
+                    </svg>
+                    <div>
+                        <span class="btn-text-main">macOS</span>
+                        <span class="btn-text-sub">Direct download (.dmg)</span>
+                    </div>
+                </div>
+                <svg class="arrow-icon" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </a>
+
+            <!-- Microsoft Store Download -->
+            <!-- full = open Microsoft store -->
+            <!--https://apps.microsoft.com/detail/9pgl7gpv8nd5?referrer=appbadge&cid=test&mode=full-->
+
+            <!-- direct = open direct -->
+            <!--https://get.microsoft.com/installer/download/9pgl7gpv8nd5?referrer=appbadge&cid=test-->
+
+            <a href="https://apps.microsoft.com/detail/9PGL7GPV8ND5?referrer=appbadge&cid=homepage&mode=full" target="_blank" rel="noopener noreferrer" id="winDownloadBtn" class="btn-download">
+                <div class="btn-content">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M0 0h11.38v11.38H0zm12.62 0H24v11.38H12.62zM0 12.62h11.38V24H0zm12.62 0H24V24H12.62z"></path>
+                    </svg>
+                    <div>
+                        <span class="btn-text-main">Windows</span>
+                        <span class="btn-text-sub">Microsoft Store</span>
+                    </div>
+                </div>
+                <svg class="arrow-icon" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </a>
+        </div>
+
+        <div class="footer-note">
+            Already installed Pointus and have a license key? <a href="pointus://activate" class="link">Open Pointus</a> to enter key.
+        </div>
+    </main>
+</div>
+
+<div id="global-footer-mount"></div>
+
+<script src="/assets/js/layout.js"></script>
+<script>
+    function detectPlatform() {
+      const userAgent = window.navigator.userAgent.toLowerCase();
+      const macBtn = document.getElementById('macDownloadBtn');
+      const winBtn = document.getElementById('winDownloadBtn');
+
+      if (userAgent.includes('mac')) {
+        macBtn.classList.add('featured');
+      } else if (userAgent.includes('win')) {
+        winBtn.classList.add('featured');
+      } else {
+        macBtn.classList.add('featured');
+      }
+    }
+
+    detectPlatform();
+</script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pointus — Dynamic Mouse Follower & Desktop Visualizer Suite</title>
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <style>
+        .page-wrapper {
+      padding: 48px 0;
+    }
+
+
+
+    </style>
+</head>
+<body data-surface="light" data-accent="blue">
+
+<div id="global-nav-mount"></div>
+<nav class="sub-nav">
+    <div class="shell-container sub-nav-inner">
+        <a href="/pointus/" class="active">Pointus</a>
+        <a href="/pointus/downloads/">Download</a>
+        <!--a href="/pointus/help/">Help Center</a-->
+        <!--a href="/pointus/changelog/">Changelog</a-->
+        <a href="/pointus/privacy/">Privacy</a>
+    </div>
+</nav>
+
+<main class="shell-container page-wrapper">
+    <!-- Hero Showcase -->
+    <section class="hero-card">
+        <div class="hero-card-bg"
+             style="background-image: url('./assets/images/product_background.webp'); opacity: 1.0; "></div>
+
+        <div class="icon-wrapper">
+            <img src="./assets/images/app_icon.png" alt="Pointus App Icon">
+        </div>
+        <h1>Pointus</h1>
+        <p>for macOS & Windows</p>
+        <p class="tagline">
+            Dynamic mouse follower & desktop visualizer. Transform your cursor into a laser pointer,
+            interactive presentation spotlight, precision designer tool, or other dynamic visualizer
+            across both macOS and Windows.
+        </p>
+        <div class="hero-cta">
+            <!-- Directs to download hub -->
+            <a href="./downloads/" class="btn-primary">Download Pointus free</a>
+            <!-- Deep link to open existing install -->
+            <!--a href="pointus://activate" class="btn-secondary">Open Pointus app</a-->
+        </div>
+    </section>
+
+    <!-- Audience Pillars -->
+    <div class="section-title">Engineered For Workflows</div>
+    <div class="grid-3">
+        <div class="card-panel">
+            <div class="card-media is-carousel">
+                <div class="carousel-track">
+                    <img src="./assets/images/preset_spotlight_google.webp" alt="Spotlight preset">
+                    <img src="./assets/images/preset_laser.webp" alt="Laser preset">
+                </div>
+                <!--svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg-->
+            </div>
+            <div class="card-content">
+                <h3>Presenters & Educators</h3>
+                <p>Guide attention during presentations and screen recordings with laser pointers,
+                    dimming
+                    spotlights and ripple click bursts so viewers never lose track.</p>
+            </div>
+        </div>
+
+        <div class="card-panel">
+            <!--div class="badge-icon">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div-->
+            <div class="card-media is-carousel">
+                <div class="carousel-track">
+                    <img src="./assets/images/preset_colorpicker.webp" alt="Colorpicker preset">
+                    <img src="./assets/images/preset_magnifier.webp" alt="Magnifier preset">
+                </div>
+            </div>
+            <div class="card-content">
+                <h3>Designers & Developers</h3>
+                <p>Inspect interfaces down to the exact pixel with the floating Magnifier loupe,
+                    check
+                    bounds with full-screen crosshairs, or capture hex colors with the
+                    eyedropper.</p>
+            </div>
+        </div>
+
+        <div class="card-panel">
+            <!--div class="badge-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div-->
+            <div class="card-media is-carousel">
+                <div class="carousel-track">
+                    <img src="./assets/images/preset_popart.webp" alt="Pop-art preset">
+                    <img src="./assets/images/preset_birthday_balloon.webp"
+                         alt="Birthday balloon preset">
+                </div>
+            </div>
+            <div class="card-content">
+                <h3>Desktop Customizers</h3>
+                <p>Spice up your generic system arrow with a friendly butterfly, particle trails, a
+                    floating birthday balloon, ascii fish, retro pop art visualizers and much
+                    more...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Highlights -->
+    <div class="section-title">Product Highlights</div>
+    <div class="grid-2">
+        <div class="card-panel">
+            <h3>Personalize</h3>
+            <p>Adjust and combine your mouse follower to your own liking with additional visuals,
+                and let them
+                trigger on mouse clicks or action shortcuts. Tweak individual preset colors, shapes,
+                sizes,
+                opacity, offsets,
+                trailing lengths, spring stiffness, particle density and much much more. If you
+                don't want the system hardware cursor to show together with your preset, then just
+                set it to hidden.
+            </p>
+        </div>
+        <div class="card-panel">
+            <h3>Multi-display & virtual desktop ready</h3>
+            <p>Pointus seamlessly bridges monitor borders, multi-screen geometries, and
+                multi-desktop environments.</p>
+        </div>
+
+        <div class="card-panel">
+            <h3>Configurable</h3>
+            <p>Pointus is always just a keypress away, and comes with default global shortcuts for common actions like turning
+                Pointus on/off, and trigger the primary & secondary actions.
+                If you want, you can always assign your own key combinations instead.</p>
+        </div>
+        <div class="card-panel">
+            <h3>0% CPU idle sleep</h3>
+            <p>Pointus does not waste cycles. When your cursor rests and active animations finish,
+                the physics engine cuts background processing completely to eliminate battery
+                drain.</p>
+        </div>
+
+    </div>
+
+    <!-- Feature Matrix -->
+    <div class="section-title">Free vs. Pro Features</div>
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th>Capability</th>
+                <th class="col-center">Free version</th>
+                <th class="col-center">Pro version</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Laser pointer [preset]</td>
+                <td class="col-center check">&#10003;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Mouse click (primary & secondary) effect triggers</td>
+                <td class="col-center check">&#10003;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Hotkey (primary & secondary) effect triggers</td>
+                <td class="col-center check">&#10003;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Follower offset</td>
+                <td class="col-center check">&#10003;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Background effects</td>
+                <td class="col-center check">&#10003;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Hardware (system) cursor visibility toggle</td>
+                <td class="col-center check">&#10003;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Crosshair [preset]</td>
+                <td class="col-center dash">&mdash;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Spotlight [preset] with animated zoom</td>
+                <td class="col-center dash">&mdash;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Magnifier [preset]</td>
+                <td class="col-center dash">&mdash;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Color picker/eydropper [preset]</td>
+                <td class="col-center dash">&mdash;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Pop art [preset]</td>
+                <td class="col-center dash">&mdash;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Particles [preset]</td>
+                <td class="col-center dash">&mdash;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Stopwatch [preset]</td>
+                <td class="col-center dash">&mdash;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Coordinates [preset]</td>
+                <td class="col-center dash">&mdash;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>System monitor [preset]</td>
+                <td class="col-center dash">&mdash;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Speedometer [preset]</td>
+                <td class="col-center dash">&mdash;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Birthday balloon [preset]</td>
+                <td class="col-center dash">&mdash;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Charm on a rope [preset]</td>
+                <td class="col-center dash">&mdash;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Charm on a rubber band [preset]</td>
+                <td class="col-center dash">&mdash;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Aquarium [preset]</td>
+                <td class="col-center dash">&mdash;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Butterfly [preset]</td>
+                <td class="col-center dash">&mdash;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            <tr>
+                <td>Pac-man arcade [preset]</td>
+                <td class="col-center dash">&mdash;</td>
+                <td class="col-center check">&#10003;</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="hero-cta">
+        <!-- Directs to download hub -->
+        <a href="./downloads/" class="btn-primary">Download Pointus free</a>
+        <a href="https://buy.stripe.com/6oU5kDd6B5uV2PcgvL8ww00" class="btn-primary">Purchase
+            Pointus Pro</a>
+        <!-- Deep link to open existing install -->
+        <!--a href="pointus://activate" class="btn-secondary">Open Pointus app</a-->
+    </div>
+
+    <div class="section-title">Frequently Asked Questions</div>
+
+    <div class="faq-list">
+        <details class="faq-item">
+            <summary class="faq-question">
+                <span>Does Pointus run on both Mac (macOS) and Windows?</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </summary>
+            <div class="faq-answer">
+                <p>Yes! Pointus is built natively for both macOS and Windows.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-question">
+                <span>Will running Pointus drain my laptop battery when not in use?</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </summary>
+            <div class="faq-answer">
+                <p>No. Pointus is built with a 0% CPU idle architecture. As soon as your pointer
+                    reaches rest and active animations clear, application activities will pause
+                    automatically until motion or hotkeys are detected again.</p>
+            </div>
+        </details>
+        <details class="faq-item">
+            <summary class="faq-question">
+                <span>Will the mouse follower and visualizations show when presenting in online meetings (Teams, Zoom etc.)?</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </summary>
+            <div class="faq-answer">
+                <p>Yes! Just make sure you <b>share the entire screen/desktop when presenting</b>.
+                    All
+                    effects and visualizers will be fully visible to your audience.<br>Note that
+                    sharing a single app in Teams or Zoom (or similar) hides all desktop overlays,
+                    including Pointus - causing only your default system pointer to be shown.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-question">
+                <span>Why does Pointus request Accessibility permissions on macOS?</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </summary>
+            <div class="faq-answer">
+                <p>macOS require Accessibility permissions so Pointus can calculate cursor
+                    coordinates globally across all displays and render visual effects smoothly on
+                    top of other running applications. To allow Pointus to function, you must
+                    manually designate it as a "trusted" application in your Mac's Settings (System
+                    Settings > Privacy & Security > Accessibility) which is normally prompted for
+                    when launching the Pointus app.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-question">
+                <span>How do I activate Pointus Pro?</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </summary>
+            <div class="faq-answer">
+                <p>Find the "Upgrade to Pro" option in the application menu and follow the
+                    instructions. All payments are handled by an external payment provider (Stripe),
+                    and will not go through, or be visible in our systems. Only the verification of
+                    your actual payment will be sent back to us.</p>
+                <p>When you purchase Pointus Pro, you receive a <b>personal</b> license key. You can
+                    click
+                    the instant activation link on the checkout confirmation page or manually enter
+                    your key inside the app’s Pro License menu. Make sure to save the license key
+                    for future reference. Your license key is personal and is not to be shared with
+                    anyone else.</p>
+            </div>
+        </details>
+        <details class="faq-item">
+            <summary class="faq-question">
+                <span>Is it safe to download and install Pointus?</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </summary>
+            <div class="faq-answer">
+                <p>Yes, downloading Pointus from the official download site (253below.com) or from
+                    Microsoft Store is perfectly safe!</p>
+                <p><b>For Mac users (macOS) - Apple Verified & Notarized:</b> The Pointus macOS
+                    installer (.dmg) is cryptographically signed using an official Apple Developer
+                    ID, verified and notarized by Apple’s Notary Service.</p>
+                <p><b>For Windows users (Windows) - Microsoft Store Certified:</b> The Windows
+                    version is packaged as a secure MSIX container. It is signed with a trusted
+                    publisher certificate and distributed directly via the Microsoft Store.</p>
+            </div>
+        </details>
+        <details class="faq-item">
+            <summary class="faq-question">
+                <span>What about privacy and my data?</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </summary>
+            <div class="faq-answer">
+                <p>Pointus does not collect personal identifiable information (PII) during everyday
+                    use. We do not know who you are, what your IP address is, or what you use your
+                    computer for. The only personal data we ever hold is your email address if you
+                    choose to purchase Pointus Pro, stored strictly to issue and verify your license
+                    key.</p>
+                <p><b>No screen capture or keystroke logging:</b> While Pointus requires
+                    accessibility permissions to draw custom visualizers over your standard mouse
+                    pointer, it never records your screen, captures your keystrokes, or tracks what
+                    you click on across other applications and websites.</p>
+                <p><b>Pro purchases & payments:</b> Financial details are processed securely by
+                    Stripe and never touch or enter our systems. We only receive payment
+                    confirmation to record your email address and generated serial number for
+                    activation and key recovery. Your license record is completely isolated and
+                    never connected to what you do in the app.
+                </p>
+                <p><b>Anonymous telemetry (opt-out):</b> To help us fix bugs, improve performance
+                    and focus our development, Pointus collects minimal, anonymous usage statistics
+                    (ie. which visualizer themes are popular). You can easily turn this off at any
+                    time with a single click in the app’s Settings menu.
+                    Also see: <a href="privacy/index.html" class="link">privacy policy</a>.</p>
+            </div>
+        </details>
+    </div>
+</main>
+
+<div id="global-footer-mount"></div>
+
+<script src="/assets/js/layout.js"></script>
+</body>
+</html>

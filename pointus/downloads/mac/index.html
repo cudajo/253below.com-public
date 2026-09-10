@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloading Pointus for macOS — 253°below</title>
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <style>
+        .download-success-wrapper {
+          padding: 64px 0 96px;
+          max-width: 680px;
+        }
+
+        .status-card {
+          background: var(--card-bg);
+          border: 1px solid var(--border);
+          border-radius: 24px;
+          padding: 48px 36px;
+          text-align: center;
+          box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+          margin-bottom: 32px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .status-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, var(--accent), transparent);
+          opacity: 0.6;
+        }
+
+        .spinner-ring {
+          width: 48px;
+          height: 48px;
+          border: 3px solid var(--card-bg-subtle);
+          border-top-color: var(--accent);
+          border-radius: 50%;
+          margin: 0 auto 24px;
+          animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+
+        .steps-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          gap: 16px;
+          margin: 32px 0 16px;
+          text-align: left;
+        }
+
+        .step-item {
+          background: var(--card-bg-subtle);
+          border: 1px solid var(--border);
+          border-radius: 14px;
+          padding: 20px 16px;
+        }
+
+        .step-num {
+          display: inline-block;
+          font-size: 11px;
+          font-weight: 700;
+          color: var(--accent);
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          margin-bottom: 8px;
+        }
+
+        .step-item h4 {
+          font-size: 14px;
+          font-weight: 600;
+          margin: 0 0 6px;
+          color: var(--text-main);
+        }
+
+        .step-item p {
+          font-size: 13px;
+          color: var(--text-muted);
+          line-height: 1.5;
+          margin: 0;
+        }
+
+        .troubleshoot-note {
+          font-size: 13px;
+          color: var(--text-muted);
+          margin-top: 24px;
+        }
+    </style>
+</head>
+<body data-surface="dark" data-accent="blue">
+
+<div id="global-nav-mount"></div>
+
+<main class="shell-container download-success-wrapper">
+    <div class="status-card">
+        <div class="spinner-ring" id="dlSpinner"></div>
+
+        <h1>Your download is starting…</h1>
+        <p class="tagline">
+            Thank you for downloading Pointus for macOS.
+        </p>
+
+        <div class="steps-grid">
+            <div class="step-item">
+                <span class="step-num">Step 1</span>
+                <h4>Open Installer</h4>
+                <p>Locate the downloaded <code>.dmg</code> file in your Downloads folder.</p>
+            </div>
+
+            <div class="step-item">
+                <span class="step-num">Step 2</span>
+                <h4>Drag to Applications</h4>
+                <p>Drag the Pointus app icon into your macOS Applications folder.</p>
+            </div>
+
+            <div class="step-item">
+                <span class="step-num">Step 3</span>
+                <h4>Grant Permissions</h4>
+                <p>Start app and allow Accessibility permissions when prompted to enable pointer tracking.</p>
+            </div>
+        </div>
+
+        <div class="troubleshoot-note">
+            Didn't start automatically?
+            <a id="manualLink" href="https://github.com/cudajo/pointus-releases/releases/latest/download/pointus_installer.dmg" class="link">Click here to download manually</a>.
+        </div>
+    </div>
+</main>
+
+<div id="global-footer-mount"></div>
+
+<script src="/assets/js/layout.js"></script>
+
+<script>
+    const downloadUrl = "https://github.com/cudajo/pointus-releases/releases/latest/download/pointus_installer.dmg";
+
+    // Trigger download seamlessly without leaving a blank page or resetting history
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = downloadUrl;
+        document.body.appendChild(iframe);
+      }, 400);
+    });
+</script>
+</body>
+</html>
