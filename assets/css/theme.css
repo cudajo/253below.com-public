@@ -1,0 +1,167 @@
+/* ==========================================================================
+   1. DEFAULT BASELINE TOKENS
+   ========================================================================== */
+:root {
+    /* Typographic line heights */
+  --leading-tight: 1.15;   /* Headings, Hero titles (h1, h2) */
+  --leading-snug: 1.35;    /* Subheadings, Card titles (h3, h4) */
+  --leading-relaxed: 1.6;  /* Body copy, paragraphs, FAQs */
+
+/* Global baseline font */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+  /* Default Surface: Dark Canvas */
+  --bg: #0b0b0e;
+  --bg-radial: #1a2233;
+  --card-bg: #151519;
+  --card-bg-subtle: #1c1c22;
+  --border: #2A2A30;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --text-main: #FFFFFF;
+  --text-muted: #8E8E98;
+  --header-bg: rgba(11, 11, 14, 0.85);
+
+  /* Default Accent: Pointus Electric Blue */
+  --accent: #0A84FF;
+  --accent-hover: #0066CC;
+  --accent-glow: rgba(10, 132, 255, 0.15);
+  --border-focus: rgba(10, 132, 255, 0.4);
+}
+
+/* ==========================================================================
+   2. SURFACE PALETTES (Dark, Mixed/Slate, Clean Light)
+   ========================================================================== */
+
+/* Dark Surface (Studio Default) */
+[data-surface="dark"] {
+  --bg: #0b0b0e;
+  --bg-radial: #1a2233;
+  --card-bg: #151519;
+  --card-bg-subtle: #1c1c22;
+  --border: #2A2A30;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --text-main: #FFFFFF;
+  --text-muted: #8E8E98;
+  --header-bg: rgba(11, 11, 14, 0.85);
+}
+
+/* Mixed / High-Tech Slate Surface (Soft Charcoal/Indigo) */
+[data-surface="mixed"] {
+  --bg: #0f141c;
+  --bg-radial: #1f2a3d;
+  --card-bg: #17202d;
+  --card-bg-subtle: #1f2b3c;
+  --border: #28374d;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --text-main: #F3F5F9;
+  --text-muted: #96A3B8;
+  --header-bg: rgba(15, 20, 28, 0.85);
+}
+
+/* Clean Light Surface (Docs, Whitepapers, or Light Utilities) */
+[data-surface="light"] {
+  --bg: #F8FAFC;
+  --bg-radial: #E2E8F0;
+  --card-bg: #FFFFFF;
+  --card-bg-subtle: #F1F5F9;
+  --border: #E2E8F0;
+  --border-subtle: rgba(0, 0, 0, 0.04);
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  --header-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* ==========================================================================
+   3. MODULAR BRAND ACCENTS
+   ========================================================================== */
+
+/* Electric Blue (Pointus default) */
+[data-accent="blue"] {
+  --accent: #0A84FF;
+  --accent-hover: #0066CC;
+  --accent-glow: rgba(10, 132, 255, 0.16);
+  --border-focus: rgba(10, 132, 255, 0.4);
+}
+
+/* Emerald Green (Productivity / Utilities / Finances) */
+[data-accent="emerald"] {
+  --accent: #10B981;
+  --accent-hover: #059669;
+  --accent-glow: rgba(16, 185, 129, 0.16);
+  --border-focus: rgba(16, 185, 129, 0.4);
+}
+
+/* Violet / Purple (Creative / AI / Design Tools) */
+[data-accent="purple"] {
+  --accent: #8B5CF6;
+  --accent-hover: #7C3AED;
+  --accent-glow: rgba(139, 92, 246, 0.16);
+  --border-focus: rgba(139, 92, 246, 0.4);
+}
+
+/* Amber / Orange (Hardware / Developer Tools / Alerts) */
+[data-accent="amber"] {
+  --accent: #F59E0B;
+  --accent-hover: #D97706;
+  --accent-glow: rgba(245, 158, 11, 0.16);
+  --border-focus: rgba(245, 158, 11, 0.4);
+}
+
+/* Rose / Pink (Media / Audio / Entertainment) */
+[data-accent="rose"] {
+  --accent: #F43F5E;
+  --accent-hover: #E11D48;
+  --accent-glow: rgba(244, 63, 94, 0.16);
+  --border-focus: rgba(244, 63, 94, 0.4);
+}
+
+/* ==========================================================================
+   4. GLOBAL RESET & FOUNDATIONAL STYLES
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  background-image: radial-gradient(circle at 50% 0%, var(--bg-radial) 0%, var(--bg) 65%);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  line-height: var(--leading-relaxed);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+h1 {
+  line-height: var(--leading-tight);
+}
+
+h2 {
+  line-height: 1.25;
+}
+
+h3 {
+  line-height: var(--leading-snug);
+}
+
+/* Default paragraph rhythm across all pages */
+p {
+  line-height: var(--leading-relaxed);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.shell-container {
+  max-width: 1040px;
+  width: 90%;
+  margin: 0 auto;
+}

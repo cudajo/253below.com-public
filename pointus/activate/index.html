@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activate Pointus Pro — 253°below</title>
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <style>
+        .activate-wrapper {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 48px 0;
+        }
+
+        .activate-card {
+          max-width: 440px;
+          width: 90%;
+          margin: auto;
+        }
+
+        .activate-card h1 {
+          font-size: 24px;
+          font-weight: 700;
+          margin: 0 0 12px;
+          letter-spacing: -0.5px;
+          line-height: var(--leading-tight);
+        }
+
+        .activate-card p {
+          color: var(--text-muted);
+          font-size: 15px;
+          line-height: var(--leading-relaxed);
+          margin: 0 0 32px;
+        }
+
+        .key-box {
+          background: var(--card-bg-subtle);
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          padding: 16px 18px;
+          font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+          font-size: 16px;
+          font-weight: 600;
+          letter-spacing: 1.4px;
+          color: var(--accent);
+          margin-bottom: 24px;
+          word-break: break-all;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 24px;
+          transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .key-box.is-loaded {
+          border-color: var(--border-focus);
+          box-shadow: 0 0 16px var(--accent-glow);
+        }
+
+        .key-box.is-error {
+          font-family: inherit;
+          font-size: 14px;
+          letter-spacing: normal;
+          font-weight: 500;
+          line-height: var(--leading-relaxed);
+          color: #ff5c5c;
+          border-color: rgba(255, 92, 92, 0.4);
+        }
+
+        .reveal-char {
+          opacity: 0;
+          display: inline-block;
+          animation: reveal 0.25s forwards cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        }
+
+        @keyframes reveal {
+          0% {
+            opacity: 0;
+            transform: translateY(6px) scale(0.85);
+            color: var(--text-main);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            color: var(--accent);
+          }
+        }
+
+        .activate-actions {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          margin-bottom: 20px;
+        }
+
+        .btn-activate {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          padding: 15px 20px;
+          background: var(--accent);
+          border: 1px solid var(--accent);
+          color: #FFFFFF;
+          font-size: 15px;
+          font-weight: 600;
+          text-decoration: none;
+          border-radius: 14px;
+          transition: all 0.2s ease;
+          box-sizing: border-box;
+          box-shadow: 0 4px 14px var(--accent-glow);
+        }
+
+        .btn-activate:hover {
+          background: var(--accent-hover);
+          border-color: var(--accent-hover);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px var(--accent-glow);
+        }
+
+        .btn-activate svg {
+          width: 20px;
+          height: 20px;
+          fill: currentColor;
+          flex-shrink: 0;
+        }
+
+        .btn-copy {
+          background: transparent;
+          border: none;
+          color: var(--text-muted);
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+          padding: 8px 16px;
+          border-radius: 8px;
+          transition: color 0.2s ease, background 0.2s ease;
+          align-self: center;
+        }
+
+        .btn-copy:hover {
+          color: var(--text-main);
+          background: var(--card-bg-subtle);
+        }
+
+        .footer-note {
+          font-size: 12px;
+          color: var(--text-muted);
+          margin-top: 12px;
+          line-height: var(--leading-relaxed);
+        }
+    </style>
+</head>
+<body data-surface="light" data-accent="blue">
+
+<div id="global-nav-mount"></div>
+<nav class="sub-nav">
+    <div class="shell-container sub-nav-inner">
+        <a href="/pointus/">Pointus</a>
+        <a href="/pointus/downloads">Download</a>
+        <a href="/pointus/privacy/">Privacy</a>
+    </div>
+</nav>
+
+<div class="activate-wrapper">
+    <main class="hero-card activate-card">
+        <div class="hero-card-content">
+            <div class="icon-wrapper">
+                <img src="../assets/images/app_icon.png" alt="Pointus Logo">
+            </div>
+
+            <h1>Activate Pointus Pro</h1>
+            <p>Opening Pointus to register your Pro license...<br>
+            (If the app does not launch automatically, click below or copy your key to enter it manually.)</p>
+
+            <div class="key-box" id="keyContainer"></div>
+
+            <div class="activate-actions">
+                <a href="#" id="openAppBtn" class="btn-activate" style="display: none;">
+                    <!--svg viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 9h-2V7h-2v5H6v2h2v5h2v-5h2v-2z"></path>
+                    </svg-->
+                    Open in Pointus
+                </a>
+
+                <button id="copyBtn" class="btn-copy" style="display: none;" onclick="copyKey()">
+                    Copy key to clipboard
+                </button>
+            </div>
+
+            <div class="footer-note">
+                Haven’t installed Pointus yet? <a href="/pointus/downloads" class="link">Download it here</a>.
+            </div>
+        </div>
+    </main>
+</div>
+
+<div id="global-footer-mount"></div>
+
+<script src="/assets/js/layout.js"></script>
+<script>
+    let globalKey = '';
+
+    function runActivation() {
+      const params = new URLSearchParams(window.location.search);
+      const key = params.get('key');
+
+      if (!key) {
+        showError('No license key found in the URL.');
+        return;
+      }
+
+      globalKey = key.trim();
+      const container = document.getElementById('keyContainer');
+      container.innerHTML = '';
+      container.classList.add('is-loaded');
+
+      const chars = globalKey.split('');
+      chars.forEach((char, idx) => {
+        const span = document.createElement('span');
+        span.textContent = char;
+        span.className = 'reveal-char';
+        span.style.animationDelay = `${idx * 25}ms`;
+        container.appendChild(span);
+      });
+
+      const totalDelay = (chars.length * 25) + 250;
+
+      setTimeout(() => {
+        const deepLink = `pointus://activate?key=${encodeURIComponent(globalKey)}`;
+        const openBtn = document.getElementById('openAppBtn');
+        openBtn.href = deepLink;
+        openBtn.style.display = 'inline-flex';
+
+        document.getElementById('copyBtn').style.display = 'inline-block';
+
+        setTimeout(() => {
+          window.location.href = deepLink;
+        }, 700);
+      }, totalDelay);
+    }
+
+    function showError(text) {
+      const container = document.getElementById('keyContainer');
+      container.innerHTML = text;
+      container.classList.add('is-error');
+    }
+
+    function copyKey() {
+      if (!globalKey) return;
+      navigator.clipboard.writeText(globalKey).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.textContent = 'Copied to clipboard!';
+        setTimeout(() => {
+          btn.textContent = 'Copy key to clipboard';
+        }, 2000);
+      });
+    }
+
+    runActivation();
+</script>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuring AI Adapters — Pointus Help</title>
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <style>
+        .help-wrapper {
+          padding: 64px 0 96px;
+          max-width: 820px;
+          margin: 0 auto;
+        }
+
+        .help-intro {
+          margin-bottom: 48px;
+        }
+
+        .help-intro h1 {
+          font-size: 36px;
+          font-weight: 800;
+          letter-spacing: -1px;
+          margin: 0 0 16px;
+          line-height: var(--leading-tight);
+        }
+
+        .help-intro p {
+          color: var(--text-muted);
+          font-size: 16px;
+          line-height: var(--leading-relaxed);
+          margin: 0;
+        }
+
+        .model-concept-box {
+          background: var(--card-bg-subtle);
+          border: 1px solid var(--border);
+          border-radius: 16px;
+          padding: 24px;
+          margin: 32px 0 48px;
+        }
+
+        .model-concept-box h3 {
+          font-size: 16px;
+          font-weight: 700;
+          margin: 0 0 8px;
+          color: var(--text-main);
+        }
+
+        .model-concept-box p {
+          font-size: 14px;
+          color: var(--text-muted);
+          line-height: var(--leading-relaxed);
+          margin: 0;
+        }
+
+        .adapter-section {
+          background: var(--card-bg);
+          border: 1px solid var(--border);
+          border-radius: 20px;
+          padding: 32px;
+          margin-bottom: 32px;
+          box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+        }
+
+        .adapter-header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 20px;
+          padding-bottom: 16px;
+          border-bottom: 1px solid var(--border);
+        }
+
+        .adapter-title-group {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .adapter-title-group h2 {
+          font-size: 20px;
+          font-weight: 700;
+          margin: 0;
+          letter-spacing: -0.3px;
+        }
+
+        .adapter-badge {
+          font-size: 11px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.6px;
+          color: var(--accent);
+          background: var(--accent-glow);
+          border: 1px solid var(--border-focus);
+          padding: 4px 8px;
+          border-radius: 6px;
+        }
+
+        .instruction-steps {
+          margin: 0 0 24px;
+          padding-left: 20px;
+          color: var(--text-muted);
+          font-size: 14px;
+          line-height: 1.6;
+        }
+
+        .instruction-steps li {
+          margin-bottom: 8px;
+        }
+
+        .instruction-steps strong {
+          color: var(--text-main);
+        }
+
+        .field-table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 16px;
+          background: var(--card-bg-subtle);
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          overflow: hidden;
+        }
+
+        .field-table th,
+        .field-table td {
+          padding: 12px 16px;
+          font-size: 13px;
+          text-align: left;
+          border-bottom: 1px solid var(--border);
+        }
+
+        .field-table th {
+          color: var(--text-muted);
+          font-weight: 600;
+          text-transform: uppercase;
+          font-size: 11px;
+          letter-spacing: 0.5px;
+          background: rgba(255, 255, 255, 0.02);
+        }
+
+        .field-table tr:last-child td {
+          border-bottom: none;
+        }
+
+        .field-name {
+          font-weight: 600;
+          color: var(--text-main);
+          width: 32%;
+        }
+
+        .code-pill {
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+          font-size: 12px;
+          background: rgba(0, 0, 0, 0.3);
+          border: 1px solid var(--border);
+          padding: 2px 6px;
+          border-radius: 6px;
+          color: var(--accent);
+        }
+        .table-footnote {
+          font-size: 12px;
+          color: var(--text-muted);
+          line-height: var(--leading-relaxed);
+          margin-top: 10px;
+          display: flex;
+          gap: 6px;
+          align-items: flex-start;
+        }
+
+        .table-footnote .star {
+          color: var(--accent);
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 1;
+        }
+
+        .field-star {
+          color: var(--accent);
+          font-weight: 700;
+        }
+    </style>
+</head>
+<body data-surface="dark" data-accent="blue">
+
+<div id="global-nav-mount"></div>
+
+<main class="shell-container help-wrapper">
+    <div class="help-intro">
+        <div class="section-title" style="margin: 0 0 12px;">Documentation</div>
+        <h1>Configuring AI providers</h1>
+        <p>
+            The <b>Magic Pointer</b> AI in Pointus is supported by using your own API credentials or local models. Below are configuration instructions for each of the supported providers.
+        </p>
+
+        <!--div class="model-concept-box">
+            <h3>How Preferred Models and Priority Fallbacks Work</h3>
+            <p>
+                In the <strong>Preferred Model(s)</strong> field, enter one or more model IDs separated by commas (e.g., <span class="code-pill">gemini-3.8-flash, gemini-3.8-pro</span>). Pointus attempts to run your request using the first model. If a provider reports a rate limit, quota exhaustion, or temporary outage, Pointus will failover seamlessly to the next model in your list.
+            </p>
+        </div>
+
+        <div class="model-concept-box" style="margin-top: 16px;">
+            <h3>Model Evolution & Availability</h3>
+            <p>
+                AI providers release and retire models frequently. The models suggested below represent dependable, low-latency choices at the time of writing, but newly published models or alias tags may offer faster response times, higher accuracy, or better pricing. Always check the provider's official model catalog linked in each section.
+            </p>
+        </div-->
+    </div>
+
+    <!-- 1. Google Gemini -->
+    <section class="adapter-section">
+        <div class="adapter-header">
+            <div class="adapter-title-group">
+                <h2>Google Gemini</h2>
+            </div>
+            <span class="adapter-badge">Cloud</span>
+        </div>
+
+        <ol class="instruction-steps">
+            <li>Visit the <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="link">Google AI Studio API Keys page</a>.</li>
+            <li>Sign in with your Google Account and click <strong>Create API Key</strong>.</li>
+            <li>Select an existing Google Cloud project or generate a new one, then copy the key.</li>
+            <li>Check the <a href="https://ai.google.dev/gemini-api/docs/models/gemini" target="_blank" rel="noopener noreferrer" class="link">Gemini Model Documentation</a> to verify the latest model IDs.</li>
+        </ol>
+
+        <table class="field-table">
+            <thead>
+            <tr>
+                <th>Setting Field</th>
+                <th>Recommended Value / Example</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="field-name">API Key</td>
+                <td><span class="code-pill">AIzaSy...</span></td>
+            </tr>
+            <tr>
+                <td class="field-name">Preferred Model(s) <span class="field-star">*</span></td>
+                <td><span class="code-pill">gemini-2.5-flash, gemini-2.5-pro</span></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="table-footnote">
+            <span class="star">*</span>
+            <span>Google regularly updates Gemini aliases and preview tags. Faster, lower-latency multimodal releases may become available—verify the latest IDs on <a href="https://ai.google.dev/gemini-api/docs/models/gemini" target="_blank" rel="noopener noreferrer" class="link">Google AI Studio</a>.</span>
+        </div>
+    </section>
+
+    <!-- 2. OpenAI -->
+    <section class="adapter-section">
+        <div class="adapter-header">
+            <div class="adapter-title-group">
+                <h2>OpenAI</h2>
+            </div>
+            <span class="adapter-badge">Cloud</span>
+        </div>
+
+        <ol class="instruction-steps">
+            <li>Navigate to the <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer" class="link">OpenAI API Keys Dashboard</a>.</li>
+            <li>Sign in, verify your phone number if prompted, and ensure you have an active prepaid balance in <strong>Billing</strong>.</li>
+            <li>Click <strong>Create new secret key</strong>, set your permissions, and store the token safely.</li>
+            <li>See the <a href="https://platform.openai.com/docs/models" target="_blank" rel="noopener noreferrer" class="link">OpenAI Models Overview</a> for specific snapshot and alias names.</li>
+        </ol>
+
+        <table class="field-table">
+            <thead>
+            <tr>
+                <th>Setting Field</th>
+                <th>Recommended Value / Example</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="field-name">API Key</td>
+                <td><span class="code-pill">sk-proj-...</span></td>
+            </tr>
+            <tr>
+                <td class="field-name">Preferred Model(s)<span class="field-star">*</span></td>
+                <td><span class="code-pill">gpt-4o-mini, gpt-4o</span></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="table-footnote">
+            <span class="star">*</span>
+            <span>OpenAI releases frequent point updates and snapshot snapshots. Review the <a href="https://platform.openai.com/docs/models" target="_blank" rel="noopener noreferrer" class="link">OpenAI model catalog</a> to substitute lighter, newer endpoints as they become available.</span>
+        </div>
+    </section>
+
+    <!-- 3. Anthropic Claude -->
+    <section class="adapter-section">
+        <div class="adapter-header">
+            <div class="adapter-title-group">
+                <h2>Anthropic Claude</h2>
+            </div>
+            <span class="adapter-badge">Cloud</span>
+        </div>
+
+        <ol class="instruction-steps">
+            <li>Go to the <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener noreferrer" class="link">Anthropic Console API Keys</a> page.</li>
+            <li>Sign in or create a developer account, and make sure credits are added under <strong>Billing</strong>.</li>
+            <li>Click <strong>Create Key</strong>, name it (e.g., <em>Pointus</em>), and copy the resulting string.</li>
+            <li>Review the <a href="https://docs.anthropic.com/en/docs/about-claude/models" target="_blank" rel="noopener noreferrer" class="link">Anthropic Models Guide</a> for current generation identifiers.</li>
+        </ol>
+
+        <table class="field-table">
+            <thead>
+            <tr>
+                <th>Setting Field</th>
+                <th>Recommended Value / Example</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="field-name">API Key</td>
+                <td><span class="code-pill">sk-ant-api03-...</span></td>
+            </tr>
+            <tr>
+                <td class="field-name">Preferred Model(s)<span class="field-star">*</span></td>
+                <td><span class="code-pill">claude-3-7-sonnet-latest,claude-3-5-haiku-latest</span></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="table-footnote">
+            <span class="star">*</span>
+            <span>Using the <span class="code-pill">-latest</span> suffix automatically points to Anthropic's current stable build, but newer model families may supersede these. Check the <a href="https://docs.anthropic.com/en/docs/about-claude/models" target="_blank" rel="noopener noreferrer" class="link">Anthropic documentation</a> for newly launched models.</span>
+        </div>
+    </section>
+
+    <!-- 4. xAI Grok -->
+    <section class="adapter-section">
+        <div class="adapter-header">
+            <div class="adapter-title-group">
+                <h2>xAI (Grok)</h2>
+            </div>
+            <span class="adapter-badge">Cloud</span>
+        </div>
+
+        <ol class="instruction-steps">
+            <li>Visit the <a href="https://console.x.ai/" target="_blank" rel="noopener noreferrer" class="link">xAI Cloud Console</a>.</li>
+            <li>Log in with your X/xAI account and configure a payment method.</li>
+            <li>Head to the <strong>API Keys</strong> tab and click <strong>Create API Key</strong>.</li>
+            <li>Consult the <a href="https://docs.x.ai/docs/models" target="_blank" rel="noopener noreferrer" class="link">xAI Model Documentation</a> for available model endpoints.</li>
+        </ol>
+
+        <table class="field-table">
+            <thead>
+            <tr>
+                <th>Setting Field</th>
+                <th>Recommended Value / Example</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="field-name">API Key</td>
+                <td><span class="code-pill">xai-...</span></td>
+            </tr>
+            <tr>
+                <td class="field-name">Preferred Model(s)<span class="field-star">*</span></td>
+                <td><span class="code-pill">grok-beta, grok-vision-beta</span></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="table-footnote">
+            <span class="star">*</span>
+            <span>xAI endpoints and beta aliases change rapidly as newer Grok generations exit training. Inspect the <a href="https://docs.x.ai/docs/models" target="_blank" rel="noopener noreferrer" class="link">xAI docs</a> for active production identifiers.</span>
+        </div>
+    </section>
+
+    <!-- 5. Ollama -->
+    <section class="adapter-section">
+        <div class="adapter-header">
+            <div class="adapter-title-group">
+                <h2>Ollama</h2>
+            </div>
+            <span class="adapter-badge">Local / Private</span>
+        </div>
+
+        <ol class="instruction-steps">
+            <li>Download and install Ollama from <a href="https://ollama.com" target="_blank" rel="noopener noreferrer" class="link">ollama.com</a>.</li>
+            <li>Start Ollama on your machine or private server. By default, it listens at <span class="code-pill">http://localhost:11434</span>.</li>
+            <li>Pull any model you want to run locally via your terminal (e.g., <code>ollama run llama3.2</code> or <code>ollama pull mistral</code>).</li>
+            <li>Check the <a href="https://ollama.com/library" target="_blank" rel="noopener noreferrer" class="link">Ollama Model Library</a> for all supported local model tags.</li>
+        </ol>
+
+        <table class="field-table">
+            <thead>
+            <tr>
+                <th>Setting Field</th>
+                <th>Recommended Value / Example</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="field-name">Host Endpoint</td>
+                <td><span class="code-pill">http://localhost:11434</span></td>
+            </tr>
+            <tr>
+                <td class="field-name">Preferred Model(s)<span class="field-star">*</span></td>
+                <td><span class="code-pill">llama3.2:latest, mistral:latest</span></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="table-footnote">
+            <span class="star">*</span>
+            <span>Local model availability depends entirely on the models you have pulled locally. Check the <a href="https://ollama.com/library" target="_blank" rel="noopener noreferrer" class="link">Ollama library</a> for lightweight quantized weights optimized for low-latency desktop execution.</span>
+        </div>
+    </section>
+</main>
+
+<div id="global-footer-mount"></div>
+
+<script src="/assets/js/layout.js"></script>
+</body>
+</html>
